@@ -19,16 +19,19 @@ git checkout v5-34-00-patches
 ### D2XX
 See http://www.ftdichip.com/Drivers/D2XX.htm
 
-For Linux+ARM the installation should look like the following:
+#### Linux+ARM
 
 ```bash
-version=1.1.12
-wget http://www.ftdichip.com/Drivers/D2XX/Linux/libftd2xx${version}.tar.gz
-tar -xvzf libftd2xx${version}.tar.gz
-sudo cp release/build/arm926/lib* /usr/local/lib/
-sudo cp release/ftd2xx.h /usr/local/include/
+wget http://lightput.com/libftd2xx_1.1.12_Raspberry_Pi_Fix.tar.gz -C ftd2xx
+tar -xvzf libftd2xx_1.1.12_Raspberry_Pi_Fix.tar.gz
+mv "libftd2xx 1.1.12 Raspberry Pi Fix"/ ftd2xx
+sudo cp ftd2xx/build/arm926/lib* /usr/local/lib/
+sudo ln -sf /usr/local/lib/libftd2xx.so.1.1.12 /usr/local/lib/libftd2xx.so
+sudo chmod 0755 /usr/local/lib/libftd2xx.so.1.1.12
+sudo cp ftd2xx/*.h /usr/local/include/
 
 # make shure /usr/local/lib is configured in /etc/ld.so.conf.d/*
 sudo ldconfig
 ```
-
+#### Linux
+With Linux you can download the offical ftd2xx version here: http://www.ftdichip.com/Drivers/D2XX.htm. The commands are similar to the ARM installation.
