@@ -1,8 +1,7 @@
 TARGET:=FTDI
 
-FTDI_INCLUDE := ../ftd2xx
 
-INCLUDE:= -Iinclude -I$(FTDI_INCLUDE)
+INCLUDE:= -Iinclude
 
 CXX := g++ -ggdb -w
 
@@ -10,7 +9,7 @@ CXX := g++ -ggdb -w
 ROOTCFLAGS := $(shell root-config --cflags)
 
 CFLAGS := $(ROOTCFLAGS) $(INCLUDE)
-LDFLAGS := $(shell root-config --glibs --ldflags) -Llib 
+LDFLAGS := $(shell root-config --glibs --ldflags) -Llib
 
 
 all: com gui prg
@@ -27,5 +26,5 @@ com:
 
 prg:
 	@echo Compiling main
-	@echo $(CXX) $(CFLAGS) src/main.cpp $(LDFLAGS) -lcom -lgui -lftd2xx -o $(TARGET).o
-	@$(CXX) $(CFLAGS) src/main.cpp $(LDFLAGS) -lcom -lgui -lftd2xx -o $(TARGET).o
+	@echo $(CXX) $(CFLAGS) src/main.cpp $(LDFLAGS) -lcom -lgui -lftd2xx -o $(TARGET)
+	@$(CXX) $(CFLAGS) src/main.cpp $(LDFLAGS) -lcom -lgui -lftd2xx -o $(TARGET)
