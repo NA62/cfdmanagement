@@ -31,7 +31,7 @@ extern void G__set_cpp_environmentCFD_Frame_Dict();
 
 #include "TObject.h"
 #include "TMemberInspector.h"
-#include "CFD_MainFrame.h"
+#include "include/CFD_MainFrame.h"
 #include <algorithm>
 namespace std { }
 using namespace std;

@@ -207,7 +207,7 @@ int CFD_Tab :: ReadBoardListFile(){
     fBoardPorts = new USBCom* [fNBoards];
     
     for (int i=0; i<fNBoards; i++){
-        fBoardPorts[i] = new USBCom(SN[i]);
+        fBoardPorts[i] = new USBCom(/*SN[i]*/);
         if (fBoardPorts[i]->IsInitialised())
         fBoardList -> AddEntry(Name[i],i);
         

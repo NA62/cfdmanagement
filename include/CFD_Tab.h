@@ -12,8 +12,8 @@
 #include <TGFrame.h>
 #include <RQ_OBJECT.h>
 
-#define BoardListFile "/Users/aliberti/Desktop/MUV3-CFD/CFD_Software/FTDI_COM_SW/FTDI_COM/FTDI_COM/Res/Board.txt"
-#define CFDStructFile "/Users/aliberti/Desktop/MUV3-CFD/CFD_Software/FTDI_COM_SW/FTDI_COM/FTDI_COM/Res/CFD_Test.txt"
+#define BoardListFile "./Res/Board.txt"
+#define CFDStructFile "./Res/CFD_Test.txt"
 
 class USBCom;
 class CFD;

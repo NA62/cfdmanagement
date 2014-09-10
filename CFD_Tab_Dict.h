@@ -31,7 +31,7 @@ extern void G__set_cpp_environmentCFD_Tab_Dict();
 
 #include "TObject.h"
 #include "TMemberInspector.h"
-#include "CFD_Tab.h"
+#include "include/CFD_Tab.h"
 #include <algorithm>
 namespace std { }
 using namespace std;
