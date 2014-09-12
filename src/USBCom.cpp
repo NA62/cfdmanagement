@@ -93,9 +93,10 @@ int USBCom :: InitDev(TString SN){
     if (ftstatus == FT_OK) FT_Read(fthandle, fDataIn, fNReadByte, &fNProcessedByte);
     Sleep(5);
     
-    ftstatus |= FT_SetUSBParameters(fthandle, 65536, 65536);			// Set USB request transfer sizes
+    //ftstatus |= FT_SetUSBParameters(fthandle, 65536, 65536);			// Set USB request transfer sizes
+    ftstatus |= FT_SetUSBParameters(fthandle, 10,10);
     ftstatus |= FT_SetChars(fthandle, false, 0, false, 0);				// Disable event and error characters
-    ftstatus |= FT_SetTimeouts(fthandle, 5000, 5000);					// Set the read and write timeouts to 5 seconds
+    ftstatus |= FT_SetTimeouts(fthandle, 50, 50);					// Set the read and write timeouts to 5 seconds
     ftstatus |= FT_SetLatencyTimer(fthandle, 16);						// Keep the latency timer at default of 16ms
     ftstatus |= FT_SetBitMode(fthandle, 0x0, 0x00); 					// Reset the mode to whatever is set in EEPROM
     ftstatus |= FT_SetBitMode(fthandle, 0x0, 0x02);	 					// Enable MPSSE mode
@@ -373,7 +374,7 @@ int USBCom :: WriteByte(unsigned char data){
 }
 
 int USBCom :: WriteData(unsigned char *data, int Ndata){
-    ftstatus = FT_Purge(fthandle, FT_PURGE_RX | FT_PURGE_TX);
+    //ftstatus = FT_Purge(fthandle, FT_PURGE_RX | FT_PURGE_TX);
 	fNProcessedByte = 0;
     
 	SendStart();
@@ -419,7 +420,7 @@ int USBCom :: WriteData(unsigned char *data, int Ndata){
 
 	SetIDLE();
 
-	ftstatus = FT_Purge(fthandle, FT_PURGE_RX | FT_PURGE_TX);
+	//ftstatus = FT_Purge(fthandle, FT_PURGE_RX | FT_PURGE_TX);
 
     return ftstatus;
 }
@@ -428,7 +429,7 @@ int USBCom :: ReadData (unsigned char *read_command, int command_length, unsigne
 
 	fNProcessedByte = 0;
 
-	ftstatus = FT_Purge(fthandle, FT_PURGE_RX | FT_PURGE_TX);
+	//ftstatus = FT_Purge(fthandle, FT_PURGE_RX | FT_PURGE_TX);
 
 	SendStart();
     
@@ -485,7 +486,7 @@ int USBCom :: ReadData (unsigned char *read_command, int command_length, unsigne
 
 	SetIDLE();
 
-	ftstatus = FT_Purge(fthandle, FT_PURGE_RX | FT_PURGE_TX);
+	//ftstatus = FT_Purge(fthandle, FT_PURGE_RX | FT_PURGE_TX);
 
     return fNProcessedByte-3;
 
